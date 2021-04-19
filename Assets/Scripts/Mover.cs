@@ -39,9 +39,9 @@ public class Mover : MonoBehaviour
         {
             forceDirection += Vector3.right;
         }
-        Vector3.Normalize(forceDirection);
-        Debug.Log(forceDirection);
         forceDirection = forceDirection.normalized;
+        Debug.Log(forceDirection);
+
         rb.AddForce(forceDirection * dragForce * deltaTime, ForceMode.Impulse);
     }
 }
