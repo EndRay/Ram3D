@@ -16,7 +16,9 @@ public class Chaser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += ChaseableObject.position - previous;
+        Vector3 delta = ChaseableObject.position - previous;
+        transform.position += Vector3.right * delta.x;
+        transform.position += Vector3.forward * delta.z;
         float mouseX = Input.GetAxis("Mouse X");
         transform.Rotate(mouseX * Vector3.up * mouseSpeedX);
         
