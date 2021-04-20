@@ -5,7 +5,7 @@ using UnityEngine;
 public class Mover : MonoBehaviour
 {
     public Rigidbody rb;
-
+    public Transform ChaserTransform;
     public float dragForce;
 
     // Start is called before the first frame update
@@ -25,19 +25,19 @@ public class Mover : MonoBehaviour
         Vector3 forceDirection = Vector3.zero;
         if (Input.GetKey("w"))
         {
-            forceDirection += Vector3.forward;
+            forceDirection += ChaserTransform.forward;
         }
         if (Input.GetKey("s"))
         {
-            forceDirection += Vector3.back;
+            forceDirection +=- ChaserTransform.forward;
         }
         if (Input.GetKey("a"))
         {
-            forceDirection += Vector3.left;
+            forceDirection +=- ChaserTransform.right;
         }
         if (Input.GetKey("d"))
         {
-            forceDirection += Vector3.right;
+            forceDirection += ChaserTransform.right;
         }
         forceDirection = forceDirection.normalized;
         Debug.Log(forceDirection);
